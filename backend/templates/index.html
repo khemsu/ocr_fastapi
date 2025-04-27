@@ -74,7 +74,7 @@
         <input type="file" id="file" name="file" accept=".pdf,.docx,.png,.jpg,.jpeg" required>
 
     <label for="prompt">Enter your custom prompt:</label>
-    <textarea id="prompt" name="prompt" rows="4" cols="50" placeholder="Enter prompt like extracting vendor names and contact info." required></textarea>
+    <textarea id="prompt" name="prompt" rows="4" cols="50" placeholder="Enter prompt like extracting vendor names and contact info."></textarea>
 
         <button type="submit">Upload</button>
     </form>
@@ -95,6 +95,7 @@
 
     <h2>Extracted Information:</h2>
         <pre>{{ content }}</pre>
+
     {% endif %}
 
 </body>

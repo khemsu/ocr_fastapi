@@ -1,8 +1,7 @@
 from fastapi import FastAPI, File, Form, UploadFile, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
-from .ocr_processor import process_file
-# from .ocr_Openai import process_file
+from backend.ocr_processor import process_file  
 from .models import OCRResponse
 import os
 import shutil
@@ -31,10 +30,9 @@ async def upload_file(request: Request, file: UploadFile = File(...), prompt: st
         with open(file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
         
-        # Process the uploaded file
         result = process_file(file_path, prompt)
 
-        # Clean up the temporary file
+
         os.remove(file_path)
 
         if result.status == "success":
